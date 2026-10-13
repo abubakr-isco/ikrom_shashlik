@@ -6,16 +6,25 @@
   color: var(--cream);
 }
 
-.logo svg {
+.badge {
   flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
 }
 
+.logo[data-size='lg'] .badge {
+  width: 96px;
+  height: 96px;
+}
+
+/* The badge carries the colour; the name next to it stays neutral */
 .word {
   display: inline-flex;
   align-items: baseline;
   gap: 0.28em;
   font-family: var(--font-display);
-  font-size: 1.65rem;
+  font-size: 1.6rem;
   line-height: 1;
   letter-spacing: 0.01em;
 }
@@ -26,5 +35,28 @@
 
 .second {
   font-weight: 500;
-  color: var(--ember);
+  color: var(--muted);
+}
+
+@media (min-width: 900px) {
+  .badge {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+/* Very narrow phones (320–359px): leave room for the cart and menu buttons */
+@media (max-width: 359px) {
+  .logo {
+    gap: 8px;
+  }
+
+  .badge {
+    width: 40px;
+    height: 40px;
+  }
+
+  .word {
+    font-size: 1.3rem;
+  }
 }

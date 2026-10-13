@@ -18,7 +18,7 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
         <div className={styles.brand}>
-          <Logo />
+          <Logo size="lg" showName={false} />
           <p className={styles.tagline}>{t('hero.subtitle')}</p>
           <div className={styles.socials}>
             <ContactLink href={socials.telegram.href} external className={styles.social}>

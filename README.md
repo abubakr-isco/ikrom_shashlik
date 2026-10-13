@@ -33,6 +33,7 @@ npm run dev             # http://localhost:5173
 | Стоимость доставки, бесплатная доставка, минимальный заказ | `frontend/src/config/site.js` → `delivery` |
 | Категории, блюда, цены, вес, описания, наличие, «популярное» | `frontend/src/data/menu.js`            |
 | Тексты интерфейса (RU / UZ)                            | `frontend/src/i18n/translations/ru.js`, `uz.js` |
+| Логотип и иконка вкладки (вырезаны из `logo ikrom shashlik.jpg`) | `frontend/public/images/brand/`       |
 | Фото блюд                                              | `frontend/public/images/dishes/<image>-520.webp` и `-900.webp` |
 | Фото для hero, «О нас», «Почему мы»                    | `frontend/public/images/site/`               |
 | Список источников фото                                 | `frontend/src/data/photoCredits.js` (страница `/credits`) |
