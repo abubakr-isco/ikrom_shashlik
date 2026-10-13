@@ -1,0 +1,30 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cream);
+}
+
+.logo svg {
+  flex: none;
+}
+
+.word {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.28em;
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.first {
+  font-weight: 900;
+}
+
+.second {
+  font-weight: 500;
+  color: var(--ember);
+}

@@ -1,0 +1,65 @@
+:root {
+  color-scheme: dark;
+
+  /* Palette: cooled charcoal, live ember, baked-bread cream */
+  --coal: #15100c;
+  --coal-2: #1c1611;
+  --coal-3: #261f18;
+  --coal-4: #322820;
+  --line: rgb(239 221 187 / 0.11);
+  --line-strong: rgb(239 221 187 / 0.22);
+
+  --ember: #f26b1f;
+  --ember-hot: #ff8a3d;
+  --ember-deep: #a63f0c;
+  --ember-glow: rgb(242 107 31 / 0.32);
+
+  --cream: #efddbb;
+  --text: #f7f2ea;
+  --muted: #b9ad9f;
+  --faint: #8f8377;
+
+  --danger: #ff7d69;
+  --danger-bg: rgb(255 125 105 / 0.1);
+  --success: #93d18d;
+  --success-bg: rgb(147 209 141 / 0.1);
+
+  --steel: linear-gradient(180deg, #7d746b 0%, #d9d2c7 45%, #6f675f 100%);
+
+  /* Type */
+  --font-display: 'Sofia Sans Extra Condensed Variable', 'Arial Narrow', sans-serif;
+  --font-body: 'Sofia Sans Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.25rem;
+
+  /* Shape */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Layout */
+  --header-h: 64px;
+  --container: 1240px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --section-space: clamp(72px, 9vw, 124px);
+
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --shadow-lift: 0 18px 40px -18px rgb(0 0 0 / 0.7);
+}
+
+@media (min-width: 900px) {
+  :root {
+    --header-h: 76px;
+  }
+}
+
+/* The mobile cart bar (CartBar) sets --bottom-bar inline; it is hidden on desktop. */
+@media (min-width: 1024px) {
+  :root {
+    --bottom-bar: 0px !important;
+  }
+}

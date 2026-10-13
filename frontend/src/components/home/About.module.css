@@ -1,0 +1,70 @@
+.section {
+  border-top: 1px solid var(--line);
+}
+
+.grid {
+  display: grid;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(48px, 6vw, 96px);
+  }
+}
+
+.story {
+  display: grid;
+  gap: 18px;
+  max-width: 36rem;
+  margin-top: 28px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.lead {
+  color: var(--text);
+  font-size: var(--text-lg);
+  line-height: 1.5;
+}
+
+.collage {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 14px;
+}
+
+.collage figure {
+  margin: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--coal-3);
+}
+
+.collage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chef {
+  grid-row: 1 / span 2;
+}
+
+.hall,
+.meat {
+  aspect-ratio: 4 / 3;
+}
+
+@media (min-width: 960px) {
+  .collage {
+    gap: 18px;
+  }
+
+  .meat {
+    margin-right: 18%;
+  }
+}

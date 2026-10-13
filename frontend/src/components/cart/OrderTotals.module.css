@@ -1,0 +1,64 @@
+.totals {
+  display: grid;
+  gap: 16px;
+}
+
+.hint {
+  display: grid;
+  gap: 8px;
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+.track {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--coal-4);
+  overflow: hidden;
+}
+
+/* Fills like a coal catching fire */
+.fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--ember-deep), var(--ember), var(--ember-hot));
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.rows {
+  display: grid;
+  gap: 8px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+.row dd {
+  margin: 0;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.total {
+  align-items: baseline;
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--cream);
+  font-size: var(--text-md);
+  font-weight: 650;
+}
+
+.total dd {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--cream);
+}

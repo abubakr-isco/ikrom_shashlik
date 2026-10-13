@@ -1,0 +1,40 @@
+.stepper {
+  --h: 48px;
+  display: inline-grid;
+  grid-template-columns: var(--h) minmax(2.5ch, auto) var(--h);
+  align-items: center;
+  height: var(--h);
+  border-radius: var(--radius-pill);
+  background: var(--coal-4);
+  border: 1px solid var(--line-strong);
+}
+
+.stepper[data-size='sm'] {
+  --h: 40px;
+}
+
+.button {
+  display: grid;
+  place-items: center;
+  width: var(--h);
+  height: var(--h);
+  border-radius: var(--radius-pill);
+  color: var(--cream);
+  transition: background-color 0.2s var(--ease-out), color 0.2s var(--ease-out);
+}
+
+.button:hover:not(:disabled) {
+  background: rgb(242 107 31 / 0.16);
+  color: var(--ember-hot);
+}
+
+.button:disabled {
+  opacity: 0.35;
+}
+
+.value {
+  min-width: 2.5ch;
+  text-align: center;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}

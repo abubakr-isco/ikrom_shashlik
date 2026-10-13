@@ -1,0 +1,41 @@
+.region {
+  position: fixed;
+  left: 50%;
+  bottom: calc(16px + var(--bottom-bar, 0px) + env(safe-area-inset-bottom));
+  z-index: 80;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  width: min(92vw, 420px);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+  padding: 12px 18px;
+  border-radius: var(--radius-pill);
+  background: var(--cream);
+  color: var(--coal);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  box-shadow: 0 16px 40px -12px rgb(0 0 0 / 0.65);
+  pointer-events: auto;
+  cursor: default;
+}
+
+.toast[data-tone='error'] {
+  background: #ffd9d2;
+}
+
+.icon {
+  flex: none;
+  color: var(--ember-deep);
+}
+
+.toast[data-tone='error'] .icon {
+  color: #a42a17;
+}

@@ -1,0 +1,78 @@
+.panel {
+  display: grid;
+  gap: 14px;
+  padding: 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgb(255 125 105 / 0.45);
+  background: var(--danger-bg);
+  outline: none;
+}
+
+.panel[data-kind='not_configured'] {
+  border-color: rgb(242 107 31 / 0.5);
+  background: rgb(242 107 31 / 0.08);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon {
+  flex: none;
+  color: var(--danger);
+}
+
+.panel[data-kind='not_configured'] .icon {
+  color: var(--ember-hot);
+}
+
+.title {
+  font-size: 1.75rem;
+  line-height: 1.05;
+}
+
+.text {
+  color: var(--text);
+  font-size: var(--text-sm);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.details {
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+.details summary {
+  cursor: pointer;
+  width: fit-content;
+  min-height: 32px;
+  font-weight: 600;
+}
+
+.orderText {
+  margin-top: 8px;
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  background: var(--coal);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  white-space: pre-wrap;
+  user-select: all;
+}
+
+.dev {
+  padding-top: 12px;
+  border-top: 1px dashed var(--line-strong);
+  color: var(--faint);
+  font-size: var(--text-xs);
+}

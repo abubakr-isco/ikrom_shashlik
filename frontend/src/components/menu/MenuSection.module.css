@@ -1,0 +1,186 @@
+.section {
+  padding-top: calc(var(--section-space) * 0.85);
+}
+
+.head {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 900px) {
+  .head {
+    grid-template-columns: auto 1fr;
+    align-items: end;
+    column-gap: 48px;
+  }
+
+  .head :global(.section-lead) {
+    justify-self: end;
+    text-align: right;
+    max-width: 30rem;
+  }
+}
+
+/* ---------- Toolbar ---------- */
+
+.toolbar {
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 700px) {
+  .toolbar {
+    grid-template-columns: 1fr 260px;
+  }
+}
+
+.search {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--faint);
+  pointer-events: none;
+}
+
+.searchInput {
+  padding-left: 50px;
+  padding-right: 52px;
+  border-radius: var(--radius-pill);
+}
+
+.searchInput::-webkit-search-cancel-button {
+  display: none;
+}
+
+.clear {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+}
+
+.sort {
+  position: relative;
+}
+
+.select {
+  appearance: none;
+  padding-right: 44px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+}
+
+.select option {
+  background: var(--coal-2);
+  color: var(--text);
+}
+
+.selectIcon {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+}
+
+/* ---------- Sticky category rail ---------- */
+
+.railBar {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 20;
+  margin-top: 20px;
+  background: rgb(21 16 12 / 0.86);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ---------- Results ---------- */
+
+.results {
+  scroll-margin-top: 76px; /* height of the sticky category rail */
+  padding-top: 28px;
+  min-height: 420px;
+}
+
+.count {
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+.group + .group {
+  margin-top: 48px;
+}
+
+.groupTitle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+  font-size: clamp(1.9rem, 4vw, 2.5rem);
+  font-weight: 800;
+}
+
+/* Hairline that runs from the title to the edge */
+.groupTitle::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--line-strong), transparent);
+}
+
+.grid {
+  display: grid;
+  gap: 14px;
+}
+
+@media (min-width: 980px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* ---------- Empty state ---------- */
+
+.empty {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  max-width: 34rem;
+  margin: 24px auto 0;
+  padding: 48px 24px;
+  text-align: center;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-lg);
+}
+
+.emptyIcon {
+  color: var(--ember);
+}
+
+.emptyTitle {
+  font-size: 2rem;
+}
+
+.emptyText {
+  color: var(--muted);
+}
+
+.emptyActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}

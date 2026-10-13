@@ -1,0 +1,15 @@
+.unavailable {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  border: 1px dashed var(--line-strong);
+  color: var(--faint);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.unavailable[data-size='sm'] {
+  min-height: 40px;
+}
