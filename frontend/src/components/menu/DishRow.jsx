@@ -4,13 +4,16 @@ import { DishImage } from '../ui/DishImage.jsx';
 import { AddToCart } from './AddToCart.jsx';
 import styles from './DishRow.module.css';
 
-/** Compact menu entry: photo on the left, details on the right. */
+/**
+ * Compact menu entry: photo on the left, details on the right. On phones the
+ * price and button move under the photo so the text gets the full width.
+ */
 export function DishRow({ dish }) {
   const { t, lang, pick } = useI18n();
   return (
     <article className={styles.row} data-unavailable={!dish.available || undefined}>
       <div className={styles.media}>
-        <DishImage image={dish.image} alt={pick(dish.name)} className={styles.image} sizes="(min-width: 700px) 168px, 112px" />
+        <DishImage image={dish.image} alt={pick(dish.name)} className={styles.image} sizes="(min-width: 700px) 168px, 96px" />
       </div>
       <div className={styles.body}>
         <div className={styles.heading}>
@@ -21,10 +24,10 @@ export function DishRow({ dish }) {
           </span>
         </div>
         <p className={styles.description}>{pick(dish.description)}</p>
-        <div className={styles.footer}>
-          <span className={styles.price}>{formatPrice(dish.price, lang)}</span>
-          <AddToCart dish={dish} size="sm" />
-        </div>
+      </div>
+      <div className={styles.footer}>
+        <span className={styles.price}>{formatPrice(dish.price, lang)}</span>
+        <AddToCart dish={dish} size="sm" />
       </div>
     </article>
   );

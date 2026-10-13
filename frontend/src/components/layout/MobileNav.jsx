@@ -1,5 +1,6 @@
 import { AnimatePresence, m } from 'framer-motion';
 import { Phone, X } from 'lucide-react';
+import { createPortal } from 'react-dom';
 import { Link } from 'react-router';
 import { site } from '../../config/site.js';
 import { useDialog } from '../../hooks/useDialog.js';
@@ -16,7 +17,9 @@ export function MobileNav({ open, onClose }) {
   const orderNow = useOrderNow();
   const panelRef = useDialog(open, onClose);
 
-  return (
+  // Portal: the header uses backdrop-filter, which would trap a fixed-position
+  // sheet inside the header's own 64px box.
+  return createPortal(
     <AnimatePresence>
       {open && (
         <m.div
@@ -75,6 +78,7 @@ export function MobileNav({ open, onClose }) {
           </nav>
         </m.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }

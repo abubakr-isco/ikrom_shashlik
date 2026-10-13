@@ -1,4 +1,4 @@
-import { ArrowLeft, CircleAlert, CircleCheck, LoaderCircle, ShoppingBag } from 'lucide-react';
+import { ArrowLeft, ChevronDown, CircleAlert, CircleCheck, LoaderCircle, ShoppingBag } from 'lucide-react';
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { CartLine } from '../components/cart/CartLine.jsx';
@@ -11,6 +11,7 @@ import { usePageTitle } from '../hooks/usePageTitle.js';
 import { useI18n } from '../i18n/context.js';
 import { calcTotals } from '../lib/cart.js';
 import { errorText } from '../lib/errorText.js';
+import { formatPrice } from '../lib/format.js';
 import { buildOrderText } from '../lib/orderText.js';
 import { formatPhone, nextPhoneValue, normalizePhone } from '../lib/phone.js';
 import { readJson, removeItem, writeJson } from '../lib/storage.js';
@@ -38,6 +39,8 @@ export function CheckoutPage() {
   const [touched, setTouched] = useState({});
   const [submitAttempted, setSubmitAttempted] = useState(false);
   const [status, setStatus] = useState({ state: 'idle' });
+  // Phones: the order summary starts collapsed unless something in it needs attention.
+  const [summaryOpen, setSummaryOpen] = useState(() => cart.lines.some((line) => !line.dish.available));
   const problemRef = useRef(null);
   const cartErrorRef = useRef(null);
   const successRef = useRef(null);
@@ -284,6 +287,10 @@ export function CheckoutPage() {
           )}
 
           <div className={styles.submitRow}>
+            <p className={styles.submitTotal}>
+              <span>{t('cart.total')}</span>
+              <span className={styles.submitAmount}>{formatPrice(totals.total, lang)}</span>
+            </p>
             <button type="submit" className="btn btn-primary btn-lg btn-block" disabled={submitting} aria-busy={submitting}>
               {submitting ? (
                 <>
@@ -298,7 +305,7 @@ export function CheckoutPage() {
           </div>
         </form>
 
-        <aside className={styles.summary} aria-labelledby="summary-title">
+        <aside className={styles.summary} data-open={summaryOpen || undefined} aria-labelledby="summary-title">
           <div className={styles.summaryHead}>
             <h2 id="summary-title" className={styles.summaryTitle}>
               {t('checkout.summary')}
@@ -307,12 +314,30 @@ export function CheckoutPage() {
               {t('checkout.edit')}
             </button>
           </div>
-          <ul role="list" className={styles.summaryLines}>
-            {lines.map((line) => (
-              <CartLine key={line.dish.id} line={line} compact />
-            ))}
-          </ul>
-          <OrderTotals totals={totals} fulfillment={fulfillment} />
+          <button
+            type="button"
+            className={styles.summaryToggle}
+            aria-expanded={summaryOpen}
+            aria-controls="checkout-summary-body"
+            onClick={() => setSummaryOpen((open) => !open)}
+          >
+            <span>
+              <span className="visually-hidden">{t('checkout.showItems')}: </span>
+              {t('cart.count', { count: totals.count })}
+            </span>
+            <span className={styles.toggleTotal}>
+              {formatPrice(totals.total, lang)}
+              <ChevronDown size={20} aria-hidden="true" className={styles.chevron} />
+            </span>
+          </button>
+          <div id="checkout-summary-body" className={styles.summaryBody}>
+            <ul role="list" className={styles.summaryLines}>
+              {lines.map((line) => (
+                <CartLine key={line.dish.id} line={line} compact />
+              ))}
+            </ul>
+            <OrderTotals totals={totals} fulfillment={fulfillment} />
+          </div>
         </aside>
       </div>
     </main>

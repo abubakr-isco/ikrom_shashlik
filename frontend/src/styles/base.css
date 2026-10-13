@@ -79,6 +79,12 @@ button:disabled {
   cursor: not-allowed;
 }
 
+a,
+button,
+label {
+  -webkit-tap-highlight-color: transparent;
+}
+
 a {
   color: inherit;
   text-decoration-thickness: 1px;
@@ -123,7 +129,9 @@ p {
   width: 100%;
   max-width: calc(var(--container) + var(--gutter) * 2);
   margin-inline: auto;
-  padding-inline: var(--gutter);
+  /* Keep content clear of the notch on phones in landscape */
+  padding-left: max(var(--gutter), env(safe-area-inset-left));
+  padding-right: max(var(--gutter), env(safe-area-inset-right));
 }
 
 .section {
@@ -354,4 +362,11 @@ textarea.input {
 
 main:focus {
   outline: none;
+}
+
+/* Touch screens: at least 44px tap targets */
+@media (pointer: coarse) {
+  .btn-sm {
+    --btn-h: 44px;
+  }
 }

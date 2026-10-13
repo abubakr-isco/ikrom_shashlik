@@ -6,11 +6,8 @@
   background: var(--coal-2);
   border: 1px solid var(--line);
   overflow: hidden;
+  container-type: inline-size;
   transition: border-color 0.25s var(--ease-out), transform 0.3s var(--ease-out);
-}
-
-.card:hover {
-  border-color: rgb(242 107 31 / 0.4);
 }
 
 .media {
@@ -36,8 +33,15 @@
   transition: transform 0.6s var(--ease-out);
 }
 
-.card:hover .image {
-  transform: scale(1.04);
+/* Hover only where there is a real pointer, so taps don't leave cards "stuck" */
+@media (hover: hover) {
+  .card:hover {
+    border-color: rgb(242 107 31 / 0.4);
+  }
+
+  .card:hover .image {
+    transform: scale(1.04);
+  }
 }
 
 .body {
@@ -91,6 +95,37 @@
 
 .card[data-unavailable] .image {
   filter: grayscale(0.85) brightness(0.7);
+}
+
+/* Narrow cards (phone carousel): even text heights so neighbouring cards
+   line up, price on its own line, full-width button */
+@container (max-width: 320px) {
+  .name,
+  .description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .name {
+    min-height: 2em;
+  }
+
+  .description {
+    min-height: 3em;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .footer > :last-child {
+    width: 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

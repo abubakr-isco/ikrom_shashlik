@@ -98,7 +98,7 @@
 
 .title {
   display: grid;
-  font-size: clamp(4.4rem, 15.5vw, 11.5rem);
+  font-size: clamp(4.4rem, min(15.5vw, 24svh), 11.5rem);
   font-weight: 900;
   line-height: 0.84;
   letter-spacing: -0.012em;

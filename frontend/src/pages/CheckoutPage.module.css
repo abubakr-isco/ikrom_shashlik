@@ -165,6 +165,77 @@
   overflow-y: auto;
 }
 
+/* Collapsed summary row: phones and tablets only */
+.summaryToggle {
+  display: none;
+}
+
+.submitTotal {
+  display: none;
+}
+
+@media (max-width: 999px) {
+  .summary {
+    padding: 16px 18px;
+  }
+
+  .summaryToggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    min-height: 48px;
+    color: var(--muted);
+    font-size: var(--text-sm);
+    text-align: left;
+  }
+
+  .toggleTotal {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--cream);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+
+  .chevron {
+    color: var(--muted);
+    transition: transform 0.2s var(--ease-out);
+  }
+
+  .summary[data-open] .chevron {
+    transform: rotate(180deg);
+  }
+
+  .summaryBody {
+    display: none;
+  }
+
+  .summary[data-open] .summaryBody {
+    display: block;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+  }
+
+  /* The amount being confirmed, right above the button */
+  .submitTotal {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    color: var(--muted);
+  }
+
+  .submitAmount {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--cream);
+  }
+}
+
 /* ---------- Success and empty states ---------- */
 
 .success,

@@ -168,6 +168,7 @@ const uz = {
     submit: 'Buyurtmani tasdiqlash',
     submitting: 'Buyurtma yuborilmoqda…',
     summary: 'Buyurtmangiz',
+    showItems: 'Buyurtma tarkibi',
     edit: 'Oʻzgartirish',
     note: 'Yakuniy summani operator telefon orqali tasdiqlaydi.',
     emptyTitle: 'Savat hozircha boʻsh',

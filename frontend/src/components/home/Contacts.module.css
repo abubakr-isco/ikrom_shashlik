@@ -139,10 +139,11 @@ a.social:hover {
   filter: invert(0.92) hue-rotate(180deg) saturate(0.55) brightness(0.92) contrast(0.92);
 }
 
+/* Top-left: zoom controls are top-right, attribution runs along the bottom */
 .mapLink {
   position: absolute;
-  right: 16px;
-  bottom: 16px;
+  left: 12px;
+  top: 12px;
   background: rgb(21 16 12 / 0.85);
   backdrop-filter: blur(8px);
 }

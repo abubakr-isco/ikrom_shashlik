@@ -85,3 +85,10 @@
   color: var(--faint);
   text-decoration: line-through;
 }
+
+@media (pointer: coarse) {
+  .remove {
+    width: 44px;
+    height: 44px;
+  }
+}

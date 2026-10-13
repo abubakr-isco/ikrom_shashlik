@@ -98,3 +98,15 @@
   color: var(--danger);
   font-size: var(--text-sm);
 }
+
+/* Phones in landscape: one scroll for the whole panel */
+@media (max-height: 560px) {
+  .panel {
+    overflow-y: auto;
+  }
+
+  .lines {
+    flex: none;
+    overflow: visible;
+  }
+}

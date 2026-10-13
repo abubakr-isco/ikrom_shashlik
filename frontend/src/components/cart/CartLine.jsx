@@ -37,7 +37,7 @@ export function CartLine({ line, compact = false }) {
       </div>
       <div className={styles.side}>
         <span className={styles.total}>{formatPrice(lineTotal, lang)}</span>
-        {!compact && (
+        {(!compact || !dish.available) && (
           <button
             type="button"
             className={`icon-btn ${styles.remove}`}

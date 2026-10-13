@@ -38,3 +38,9 @@
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
+
+@media (pointer: coarse) {
+  .stepper[data-size='sm'] {
+    --h: 44px;
+  }
+}

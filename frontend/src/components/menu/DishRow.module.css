@@ -1,20 +1,27 @@
+/* Phones: photo + text on top, price and button across the full width below */
 .row {
   display: grid;
-  grid-template-columns: 112px 1fr;
-  gap: 16px;
-  padding: 14px;
+  grid-template-columns: 96px minmax(0, 1fr);
+  grid-template-areas:
+    'media body'
+    'footer footer';
+  gap: 14px;
+  padding: 12px;
   border-radius: var(--radius-md);
   background: var(--coal-2);
   border: 1px solid var(--line);
   transition: border-color 0.25s var(--ease-out), background-color 0.25s var(--ease-out);
 }
 
-.row:hover {
-  border-color: rgb(242 107 31 / 0.35);
-  background: #201913;
+@media (hover: hover) {
+  .row:hover {
+    border-color: rgb(242 107 31 / 0.35);
+    background: #201913;
+  }
 }
 
 .media {
+  grid-area: media;
   align-self: start;
   aspect-ratio: 1;
   border-radius: 12px;
@@ -29,6 +36,7 @@
 }
 
 .body {
+  grid-area: body;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -45,7 +53,7 @@
 }
 
 .name {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 760;
   line-height: 1.02;
 }
@@ -60,8 +68,8 @@
 .description {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   overflow: hidden;
   color: var(--muted);
   font-size: var(--text-sm);
@@ -69,13 +77,13 @@
 }
 
 .footer {
+  grid-area: footer;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  margin-top: auto;
-  padding-top: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
 }
 
 .price {
@@ -85,6 +93,7 @@
   line-height: 1;
   color: var(--cream);
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .row[data-unavailable] .image {
@@ -95,10 +104,38 @@
   color: var(--faint);
 }
 
+/* Wider screens: price and button sit in the text column under the description */
+@media (min-width: 480px) {
+  .row {
+    grid-template-columns: 120px minmax(0, 1fr);
+    grid-template-areas:
+      'media body'
+      'media footer';
+    grid-template-rows: 1fr auto;
+    column-gap: 18px;
+    row-gap: 10px;
+    padding: 14px;
+  }
+
+  .description {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+
+  .footer {
+    padding-top: 0;
+    border-top: 0;
+  }
+}
+
 @media (min-width: 700px) {
   .row {
-    grid-template-columns: 168px 1fr;
-    gap: 20px;
+    grid-template-columns: 168px minmax(0, 1fr);
+    column-gap: 20px;
     padding: 16px;
+  }
+
+  .name {
+    font-size: 1.4rem;
   }
 }

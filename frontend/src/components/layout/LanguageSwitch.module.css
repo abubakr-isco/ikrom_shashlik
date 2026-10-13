@@ -25,3 +25,10 @@
   background: var(--cream);
   color: var(--coal);
 }
+
+@media (pointer: coarse) {
+  .option {
+    height: 40px;
+    min-width: 44px;
+  }
+}
